@@ -17,22 +17,22 @@ case $IO_CHOICE in
 	[Oo]* )
 		echo 314 > /sys/class/gpio/export
 		echo out > /sys/class/gpio/gpio314/direction
-		echo "DIGITAL_IO_CH0 OFF"
+		echo "DIGITAL_IO_CH6 OFF"
 		echo 0 > /sys/class/gpio/gpio314/value
 		sleep $sleep_time
-		echo "DIGITAL_IO_CH0 ON"
+		echo "DIGITAL_IO_CH6 ON"
 		echo 1 > /sys/class/gpio/gpio314/value
 		sleep $sleep_time
-		echo "DIGITAL_IO_CH0 OFF"
+		echo "DIGITAL_IO_CH6 OFF"
 		echo 0 > /sys/class/gpio/gpio314/value
 		sleep $sleep_time
-		echo "DIGITAL_IO_CH0 ON"
+		echo "DIGITAL_IO_CH6 ON"
 		echo 1 > /sys/class/gpio/gpio314/value
 		sleep $sleep_time
-		echo "DIGITAL_IO_CH0 OFF"
+		echo "DIGITAL_IO_CH6 OFF"
 		echo 0 > /sys/class/gpio/gpio314/value
 		sleep $sleep_time
-		echo "DIGITAL_IO_CH0 ON"
+		echo "DIGITAL_IO_CH6 ON"
 		echo 1 > /sys/class/gpio/gpio314/value
 		echo 314 > /sys/class/gpio/unexport
 		;;
