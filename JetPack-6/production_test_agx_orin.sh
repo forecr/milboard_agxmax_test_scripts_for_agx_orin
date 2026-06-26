@@ -62,7 +62,7 @@ apt_install_pkg 'gpiod'
 
 function check_nvgetty_service {
 	echo -n "nvgetty.service status: "
-	if [ "$(systemctl is-enabled nvgetty.service)" = "enabled" ]; then 
+	if [ "$(systemctl is-enabled nvgetty.service)" = "enabled" ]; then
 		echo "enabled"
 		sleep 2
 		sudo systemctl disable nvgetty.service
@@ -71,7 +71,7 @@ function check_nvgetty_service {
 		sudo reboot
 	elif [ "$(systemctl is-enabled nvgetty.service)" = "disabled" ]; then
 		echo "disabled"
-	else 
+	else
 		echo "Failed to get unit file state -> No such file or directory"
 		echo "Skipping..."
 	fi
@@ -112,7 +112,8 @@ function test_menu {
 		echo "24) Digital I/O CH5 Test"
 		echo "25) Digital I/O CH6 Test"
 		echo "26) Digital I/O CH7 Test"
-		echo "27) Fan Test"
+		echo "27) 6-AXIS IMU & Temperature Sensor Test"
+		echo "28) Fan Test"
 		read -p "Type the test number (or quit) [1/.../q]: " CHOICE
 		echo ""
 
@@ -241,6 +242,10 @@ function test_menu {
 				sudo gnome-terminal -- $SCRIPTS_FOLDER/test_digital_io_ch7_agx_orin.sh
 				;;
 			27 )
+				echo "6-AXIS IMU & Temperature Sensor Test"
+				sudo gnome-terminal -- $SCRIPTS_FOLDER/test_wsen_isds_imu.sh -i 0.1
+				;;
+			28 )
 				echo "Fan Test"
 				sudo gnome-terminal -- $SCRIPTS_FOLDER/test_fan.sh
 				;;
